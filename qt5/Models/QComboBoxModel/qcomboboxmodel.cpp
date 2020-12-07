@@ -56,9 +56,13 @@ QVariant QComboBoxModel::data( const QModelIndex &index, int role ) const
 void QComboBoxModel::populate(QList<QPair<int,QString>> *newValues)
 {
     int idx = this->values->count();
+    qDebug() << "Row count:" << this->getRowCount();
     this->beginInsertRows(QModelIndex(), 1, idx);
+        qDebug() << "Row count:" << this->getRowCount();
         this->values = newValues;
+        qDebug() << "Row count:" << this->getRowCount();
     endInsertRows();
+    qDebug() << "Row count:" << this->getRowCount();
  }
 
 void QComboBoxModel::append(int index, QString value)
@@ -97,7 +101,12 @@ void QComboBoxModel::insertAt(int idx, int data_idx, QString value)
 
     this->beginInsertRows(QModelIndex(), newRow, newRow);
 
-        values->insert(0,QPair<int,QString>(data_idx, value));
+        values->insert(newRow,QPair<int,QString>(data_idx, value));
 
     endInsertRows();
+}
+
+int QComboBoxModel::getRowCount()
+{
+    return this->rowCount(QModelIndex());
 }
