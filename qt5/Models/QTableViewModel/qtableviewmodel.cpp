@@ -1,3 +1,16 @@
+/****************************************************************************
+**
+** Copyright 2020 Vasiliy Altunin <skyr@altuninvv.ru>. All rights reserved.
+**
+** Use of this source code is governed by a BSD-style
+** license that can be found in the LICENSE file.
+**
+** Created for articles of site https://blog.altuninvv.ru
+**
+** Example how to extend model with class to use with model with QTableView widget in Qt5
+**
+****************************************************************************/
+
 #include "qtableviewmodel.h"
 
 #include <QModelIndex>

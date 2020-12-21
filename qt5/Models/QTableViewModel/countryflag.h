@@ -7,9 +7,9 @@
 **
 ** Created for articles of site https://blog.altuninvv.ru
 **
-** Example how to use delegate with model with QComboBox widget in Qt5
+** Example how to extend model with class to use with model with QComboBox widget in Qt5
 **
-** CountryFlag - storage class for QComboBox data
+** CountryFlag - storage class for QTableView data
 **
 ****************************************************************************/
 
