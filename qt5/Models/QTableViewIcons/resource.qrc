@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/belarus.png</file>
+        <file>img/china.png</file>
+        <file>img/ecuador.png</file>
+        <file>img/license.pdf</file>
+        <file>img/mongolia.png</file>
+        <file>img/russia.png</file>
+        <file>img/slovakia.png</file>
+        <file>img/slovenia.png</file>
+        <file>img/japan.png</file>
+    </qresource>
+</RCC>
