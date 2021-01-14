@@ -1,3 +1,16 @@
+/****************************************************************************
+**
+** Copyright 2021 Vasiliy Altunin <skyr@altuninvv.ru>. All rights reserved.
+**
+** Use of this source code is governed by a BSD-style
+** license that can be found in the LICENSE file.
+**
+** Created for articles of site https://blog.altuninvv.ru
+**
+** WebAPI request demo from EVE Online ESI
+**
+****************************************************************************/
+
 #include "mainwindow.h"
 #include "qeveesimarketorder.h"
 #include "ui_mainwindow.h"
