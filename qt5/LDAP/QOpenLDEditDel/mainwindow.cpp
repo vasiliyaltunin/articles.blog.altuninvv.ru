@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLdap *ldap = new QLdap();
 
-    const QString url= "ldap://192.168.0.1:389";
+    const QString url= "ldap://192.168.1.40:389";
 
     int result;
 
@@ -71,8 +71,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    QLdapMod *mod = new QLdapMod(user);
-
+    QLdapMod *mod = new QLdapMod(user, LDAP_MOD_ADD);
     LDAPMod **m = mod->getMods();
 
     result = ldap->add("OU=Company,DC=altuninvv,DC=local", user, m);
@@ -86,6 +85,37 @@ MainWindow::MainWindow(QWidget *parent)
         //return;
     }
 
+    //result = ldap->del("CN=Иванов И. И.,OU=Company,DC=altuninvv,DC=local");
+
+    if ( result != LDAP_SUCCESS )
+    {
+        QString msg = QString("QLDAP del() error: ") + QString(ldap_err2string(result));
+        qDebug("%s",msg.toLatin1().constData());
+        //return;
+    }
+
+
+
+    QLdapEntry *user1 = new QLdapEntry();
+    QLdapUser u1 = QLdapUser(user1);
+
+    u1.setDisplayName("Россиянин Иван Иванович");
+    u1.setOfficePhone("aaaaaa");
+
+
+    QLdapMod *mod1 = new QLdapMod(user1, LDAP_MOD_REPLACE);
+    LDAPMod **m1 = mod1->getMods();
+
+    result = ldap->edit("cn=Иванов И. И.,OU=Company,DC=altuninvv,DC=local", m1);
+
+    delete mod1;
+
+    if ( result != LDAP_SUCCESS )
+    {
+        QString msg = QString("QLDAP edit() error: ") + QString(ldap_err2string(result));
+        qDebug("%s",msg.toLatin1().constData());
+        //return;
+    }
 
 
     //Close
