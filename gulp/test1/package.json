@@ -1,0 +1,61 @@
+{
+  "name": "SiteOptimizerDemo",
+  "description": "Demo of using GULP to optimize you site code",
+  "version": "0.0.1",
+  "keywords": [
+    "gulp",
+    "blog",
+    "html",
+    "css",
+    "js",
+    "image",
+    "optimization"
+  ],
+  "maintainers": [
+    {
+      "name": "Vasiliy Altunin",
+      "email": "skyr@altuninvv.ru",
+      "web": "https://blog.altuninvv.ru"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vasiliyaltunin"
+  },
+  "bugs": {
+    "web": "git://github.com/vasiliyaltunin/   /issues"
+  },
+  "licenses": [
+    {
+      "name": "GPL",
+      "url": "http://www.gnu.org/licenses/quick-guide-gplv3.en.html"
+    }
+  ],
+  "devDependencies": {
+    "browser-sync": "*",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "*",
+    "gulp-cache": "*",
+    "gulp-changed": "*",
+    "gulp-concat": "*",
+    "gulp-cssnano": "*",
+    "gulp-dependents": "*",
+    "gulp-header": "*",
+    "gulp-html-minifier-terser": "*",
+    "gulp-imagemin": "*",
+    "gulp-notify": "*",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-svg-sprite": "*",
+    "gulp-uglify": "*",
+    "gulp-watch": "*",
+    "gulp.spritesmith": "*",
+    "postcss-flexbugs-fixes": "*",
+    "postcss-short-font-size": "*",
+    "postcss-uncss": "*",
+    "require-dir": "*",
+    "vinyl-buffer": "*"
+  }
+}
