@@ -1,0 +1,45 @@
+2021-03-24 08:02:49.190 UTC	Info	WsusService.16	EventLogEventReporter.ReportEvent	EventId=366,Type=Information,Category=Synchronization,Message=Скачивание файла содержимого успешно завершено. 
+Дайджест: 
+Исходный файл: /c/msdownload/update/driver/drvs/2015/12/200010168_6a0afafa82a723050b887266adf8ae44caf13d1d.cab 
+Конечный файл: g:\wsus\WsusContent\1D\6A0AFAFA82A723050B887266ADF8AE44CAF13D1D.cab
+2021-03-24 08:02:49.237 UTC	Info	WsusService.16	ContentSyncAgent.WakeUpWorkerThreadProc	ContentSyncAgent found no more Jobs, going to Sleep for BITS Notifications
+2021-03-24 08:02:49.300 UTC	Info	WsusService.16	ContentSyncAgent.WakeUpWorkerThreadProc	Processing Item: 8dcae4cf-2f47-4145-975b-a0dcaa94f7ee, State: 10
+2021-03-24 08:02:49.331 UTC	Info	WsusService.16	ContentSyncAgent.Download	Item: 8dcae4cf-2f47-4145-975b-a0dcaa94f7ee has been submitted to BITS for Download
+2021-03-24 08:02:49.378 UTC	Info	WsusService.16	ContentSyncAgent.WakeUpWorkerThreadProc	ContentSyncAgent found no more Jobs, going to Sleep for BITS Notifications
+2021-03-24 08:02:50.284 UTC	Info	w3wp.192	ServerImplementation.UpdateCache	Database change occured; check if we need to update cache.
+2021-03-24 08:02:50.284 UTC	Info	w3wp.653	ThreadEntry	TimerQueue.FireNextTimers
+2021-03-24 19:50:44.571 UTC	Error	w3wp.496	SyncUpdatesHelper.UpdateHardwareDriverCache	SQL exception occured while trying to get Hardware changes - {1}.
+   в Microsoft.UpdateServices.Internal.SyncUpdatesHelper.UpdateHardwareDriverCache(Int64 lastChangeNumber, Int64 newChangeNumber, DriverUpdatesData oldData, DataAccess da)
+   в Microsoft.UpdateServices.Internal.SyncUpdatesHelper.InitDriverSync()
+   в Microsoft.UpdateServices.Internal.DataAccessCache.ResetHardwareCache()
+   в Microsoft.UpdateServices.Internal.DataAccessCache..ctor(ClientImplementation client)
+   в Microsoft.UpdateServices.Internal.DataAccessCache.GetCache(ClientImplementation client)
+   в Microsoft.UpdateServices.Internal.ClientImplementation..ctor(NotifyEventHandler handler, HttpContext httpContext)
+   в Microsoft.UpdateServices.Internal.Client.CreateClientImplementationThread()
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart()
+2021-03-24 19:50:44.586 UTC	Error	w3wp.496	ClientImplementation..ctor	Error in ClientImplementation constructor: System.Data.SqlClient.SqlException (0x80131904): Время ожидания выполнения истекло. Время ожидания истекло до завершения операции, или сервер не отвечает. ---> System.ComponentModel.Win32Exception (0x80004005): Время ожидания операции истекло
+   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlDataReader.TrySetMetaData(_SqlMetaDataSet metaData, Boolean moreInfo)
+   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   в System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   в System.Data.SqlClient.SqlDataReader.Read()
+   в Microsoft.UpdateServices.Internal.SyncUpdatesHelper.UpdateHardwareDriverCacheWithDBResult(DriverUpdatesData oldData, DataAccess da, DBConnection dbConnection)
+   в Microsoft.UpdateServices.Internal.SyncUpdatesHelper.UpdateHardwareDriverCache(Int64 lastChangeNumber, Int64 newChangeNumber, DriverUpdatesData oldData, DataAccess da)
+   в Microsoft.UpdateServices.Internal.SyncUpdatesHelper.InitDriverSync()
+   в Microsoft.UpdateServices.Internal.DataAccessCache.ResetHardwareCache()
+   в Microsoft.UpdateServices.Internal.DataAccessCache..ctor(ClientImplementation client)
+   в Microsoft.UpdateServices.Internal.DataAccessCache.GetCache(ClientImplementation client)
+   в Microsoft.UpdateServices.Internal.ClientImplementation..ctor(NotifyEventHandler handler, HttpContext httpContext)
+ClientConnectionId:0709d2b2-23f9-4bae-ad4c-07430d855983
+Error Number: -2, State: 0, Class: 11. Seconds spent in constructor: 27328,095207.
+   в Microsoft.UpdateServices.Internal.ClientImplementation..ctor(NotifyEventHandler handler, HttpContext httpContext)
+   в Microsoft.UpdateServices.Internal.Client.CreateClientImplementationThread()
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart()
