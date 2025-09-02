@@ -1,0 +1,63 @@
+# Doxyfile 1.14.0
+
+#---------------------------------------------------------------------------
+# Настрйоки проекта
+#---------------------------------------------------------------------------
+
+# Кодировка
+DOXYFILE_ENCODING     = UTF-8
+
+# Название проекта
+PROJECT_NAME           = "Color Console Library"
+
+# The PROJECT_NUMBER tag can be used to enter a project or revision number. This
+# could be handy for archiving the generated documentation or if some version
+# control system is used.
+
+# Версия проекта, должна совпадать с версией в файле CMakeFiles.txt
+# в строке
+# VERSION 0.1.0
+PROJECT_NUMBER        = "0.1.0"
+
+# Краткое описание проекта
+PROJECT_BRIEF         = "С помощью этой библиотеки можно выводить цветной текст в консоль Windows"
+
+# Лого проекта мы не будем использовать логотип
+PROJECT_LOGO          = ""
+
+# Иконка проекта мы не будем использовать её
+PROJECT_ICON          = ""
+
+# Задаем каталог с исходным текстом из которого doxygen будет брать файлы
+INPUT                 = ../ \ 
+                        ../README.md
+
+# Указываем какое файлы нужно документировать
+FILE_PATTERNS         = *.cpp \
+                        *.h 
+
+# Указываем doxygen автоматически просматривать подкаталоги в поисках файлов
+RECURSIVE             = YES
+
+# Указываем doxygen исключить из обработки папки, которые не нужно обрабатывать
+# На так же не нужно, чтобы внутренние заголовки библиотеки документировались
+EXCLUDE               = ../cmake ../build ../src/colorconsole.h
+
+# Как правило мы исключаем все папки с тестами из документации, и хотя тество у нас 
+# пока что нет, мы все равно пропишем не будущее
+EXCLUDE_PATTERNS      = */test/*
+
+# Эта опция указывает исползовать файл README.md как главную страницу нашей 
+# документации, мы создадим его позже
+USE_MDFILE_AS_MAINPAGE = "../README.md"
+
+# Нам не нужен вывод в формате LATEX
+GENERATE_LATEX        = NO
+
+# Вырезаем полные пути из документации, в противном случае у нас в докуметации будут 
+# длинные пути к файлам, например:
+# /c/projects/colorconsolelib/include/colorconsole/colorconsole.h
+FULL_PATH_NAMES = NO
+
+# Задаем язык нашей документации
+OUTPUT_LANGUAGE = Russian

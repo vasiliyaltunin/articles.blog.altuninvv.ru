@@ -1,0 +1,21 @@
+# Добавляем файлы с исходным кодом к нашему проекту
+target_sources(${PROJECT_NAME} PRIVATE ${sources})
+
+# Добавляем папку src к нашему проекту
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>"
+)
+
+# Если библиотека используется как папка, открываем доступ к заголовочным файлам
+target_include_directories(${PROJECT_NAME}
+    PUBLIC 
+       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+)
+
+
+# Имя файла библиотеки. К нему автоматически будет добавлено lib
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${MY_LIB_OUTPUT_NAME}")
+
+
+message(" === Targets settings complete")
