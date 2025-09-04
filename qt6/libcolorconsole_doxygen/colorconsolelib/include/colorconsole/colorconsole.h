@@ -14,6 +14,9 @@
 
 #include <windows.h>
 
+namespace ccon
+{
+
 class ColorConsole
 {
 
@@ -144,5 +147,7 @@ public:
      */
     static void emptyLine();
 };
+
+}
 
 #endif

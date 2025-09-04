@@ -14,6 +14,8 @@
 
 #include "colorconsole/colorconsole.h"
 
+using ccon::ColorConsole;
+
 int main(int argc, char *argv[])
 {
     ColorConsole::init();

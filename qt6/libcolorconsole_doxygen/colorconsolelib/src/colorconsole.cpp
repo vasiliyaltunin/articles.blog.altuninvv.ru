@@ -14,6 +14,9 @@
 #include "colorconsole.h"
 #include <iostream>
 
+namespace ccon
+{
+
 /**
  * @brief Конструктор класса ColorConsole
  *
@@ -102,4 +105,6 @@ void ColorConsole::emptyLine()
 {
     ColorConsole::setConsStdErrDefColor();
     std::cout << std::endl;
+}
+
 }
