@@ -1,0 +1,76 @@
+# Сборка внешней документации для пользователей
+# По умолчанию ON
+option(BUILD_EXTERNAL_DOCS "Build external library docs" ON)
+
+# Кодировка
+set("DOXYGEN_DOC_DOXYFILE_ENCODING" "UTF-8")
+
+# Название проекта
+set("DOXYGEN_DOC_PROJECT_NAME" "Color Console Library")
+
+# Версия проекта, должна совпадать с версией в файле CMakeFiles.txt
+# в строке
+# VERSION 0.1.0
+set("DOXYGEN_DOC_PROJECT_NUMBER" "0.1.0")
+
+# Краткое описание проекта
+set("DOXYGEN_DOC_PROJECT_BRIEF" "С помощью этой библиотеки можно выводить цветной текст в консоль Windows")
+
+# Лого проекта мы не будем использовать логотип
+set("DOXYGEN_DOC_PROJECT_LOGO" "")
+
+# Иконка проекта мы не будем использовать её
+set("DOXYGEN_DOC_PROJECT_ICON" "")
+
+# Указываем doxygen автоматически просматривать подкаталоги в поисках файлов
+set("DOXYGEN_DOC_RECURSIVE" "YES")
+
+# Как правило мы исключаем все папки с тестами из документации, и хотя тестов у нас 
+# пока что нет, мы все равно пропишем не будущее
+set("DOXYGEN_DOC_EXCLUDE_PATTERNS" "*/test/* \\
+                                    ../../cmake \\
+                                   ../../build")
+
+# Эта опция указывает использовать файл README.md как главную страницу нашей 
+# документации, мы создадим его позже
+set("DOXYGEN_DOC_USE_MDFILE_AS_MAINPAGE" "../../README.md")
+
+# Нам не нужен вывод в формате LATEX
+set("DOXYGEN_DOC_GENERATE_LATEX" "NO")
+
+# Вырезаем полные пути из документации, в противном случае у нас в документации будут 
+# длинные пути к файлам, например:
+# /c/projects/colorconsolelib/include/colorconsole/colorconsole.h
+set("DOXYGEN_DOC_FULL_PATH_NAMES" "NO")
+
+# Задаем язык нашей документации
+set("DOXYGEN_DOC_OUTPUT_LANGUAGE" "Russian")
+
+
+
+# Указываем какие файлы нужно документировать
+if (BUILD_EXTERNAL_DOCS STREQUAL "OFF")
+# Задаем каталог с исходным текстом из которого doxygen будет брать файлы
+    # Если собираем внутреннюю документацию, то обрабатываем все файлы 
+    set("DOXYGEN_DOC_INPUT" "../../src \\ 
+                             ../../include \\ 
+                            ../../README.md")
+    set("DOXYGEN_DOC_FILE_PATTERNS" "*.cpp \\
+                                    *.h")                                     
+    message(" === Building INTERNAL docs")
+else()
+    # Если собираем документацию для пользователей, то обрабатываем 
+    # только файлы *.h из папки /include
+    # Задаем каталог с исходным текстом из которого doxygen будет брать файлы
+    set("DOXYGEN_DOC_INPUT" "../../include/ \\ 
+                         ../../README.md")
+
+    # Обрабатываем только файлы с расширением .h
+    set("DOXYGEN_DOC_FILE_PATTERNS" "*.h")
+   
+    # Отключаем EXCLUDE, чтобы сканировались только папки и 
+    # файлы указанные в INPUT 
+    set("DOXYGEN_DOC_EXCLUDE" "")
+
+    message(" === Building EXTERNAL docs")
+endif()
