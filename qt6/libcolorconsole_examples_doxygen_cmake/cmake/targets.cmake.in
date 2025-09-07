@@ -1,0 +1,43 @@
+# Добавляем файлы с исходным кодом к нашему проекту
+target_sources(${PROJECT_NAME} PRIVATE ${sources})
+
+# Добавляем папку src к нашему проекту
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>"
+)
+
+# Если библиотека используется как папка, открываем доступ к заголовочным файлам
+target_include_directories(${PROJECT_NAME}
+    PUBLIC 
+       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+)
+
+
+# Имя файла библиотеки. К нему автоматически будет добавлено lib
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${MY_LIB_OUTPUT_NAME}")
+
+
+find_package(Doxygen)
+
+if(Doxygen_FOUND)
+
+    doxygen_add_docs(docs 
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/docs
+                    ALL
+                    CONFIG_FILE ${CMAKE_CURRENT_BINARY_DIR}/docs/Doxyfile
+                    )
+
+    # Имя файла библиотеки. К нему автоматически будет добавлено lib
+    set_target_properties(docs PROPERTIES EXCLUDE_FROM_ALL TRUE)
+
+  message(" === Documentation setup complete")
+endif()
+
+add_subdirectory(examples EXCLUDE_FROM_ALL)
+
+add_custom_target(examples
+    DEPENDS basicexample color_table_example Russia_flag_example
+)
+
+message(" === Targets settings complete")

@@ -1,0 +1,57 @@
+# Doxyfile 1.14.0
+
+#---------------------------------------------------------------------------
+# Настройки проекта
+#---------------------------------------------------------------------------
+
+# Кодировка
+DOXYFILE_ENCODING     = "${DOXYGEN_DOC_DOXYFILE_ENCODING}"
+
+# Название проекта
+PROJECT_NAME           = "${DOXYGEN_DOC_PROJECT_NAME}"
+
+# Версия проекта, должна совпадать с версией в файле CMakeFiles.txt
+# в строке
+# VERSION 0.1.0
+PROJECT_NUMBER        = "${DOXYGEN_DOC_PROJECT_NUMBER}"
+
+# Краткое описание проекта
+PROJECT_BRIEF         = "${DOXYGEN_DOC_PROJECT_BRIEF}"
+
+# Лого проекта мы не будем использовать логотип
+PROJECT_LOGO          = "${DOXYGEN_DOC_PROJECT_LOGO}"
+
+# Иконка проекта мы не будем использовать её
+PROJECT_ICON          = "${DOXYGEN_DOC_PROJECT_ICON}"
+
+# Задаем каталог с исходным текстом из которого doxygen будет брать файлы
+INPUT                 = ${DOXYGEN_DOC_INPUT}
+
+# Указываем какие файлы нужно документировать
+FILE_PATTERNS         = ${DOXYGEN_DOC_FILE_PATTERNS}
+
+# Указываем doxygen автоматически просматривать подкаталоги в поисках файлов
+RECURSIVE             = "${DOXYGEN_DOC_RECURSIVE}"
+
+# Указываем doxygen исключить из обработки папки, которые не нужно обрабатывать
+# На так же не нужно, чтобы внутренние заголовки библиотеки документировались
+EXCLUDE               = ${DOXYGEN_DOC_EXCLUDE}
+
+# Как правило мы исключаем все папки с тестами из документации, и хотя тестов у нас 
+# пока что нет, мы все равно пропишем не будущее
+EXCLUDE_PATTERNS      = "${DOXYGEN_DOC_EXCLUDE_PATTERNS}"
+
+# Эта опция указывает использовать файл README.md как главную страницу нашей 
+# документации, мы создадим его позже
+USE_MDFILE_AS_MAINPAGE = "${DOXYGEN_DOC_USE_MDFILE_AS_MAINPAGE}"
+
+# Нам не нужен вывод в формате LATEX
+GENERATE_LATEX        = "${DOXYGEN_DOC_GENERATE_LATEX}"
+
+# Вырезаем полные пути из документации, в противном случае у нас в документации будут 
+# длинные пути к файлам, например:
+# /c/projects/colorconsolelib/include/colorconsole/colorconsole.h
+FULL_PATH_NAMES = "${DOXYGEN_DOC_FULL_PATH_NAMES}"
+
+# Задаем язык нашей документации
+OUTPUT_LANGUAGE = "${DOXYGEN_DOC_OUTPUT_LANGUAGE}"

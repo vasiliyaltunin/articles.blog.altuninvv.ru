@@ -1,0 +1,3 @@
+add_subdirectory(basic)
+add_subdirectory(color_table)
+add_subdirectory(Russia_flag)

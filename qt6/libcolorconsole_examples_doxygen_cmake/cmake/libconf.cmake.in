@@ -1,0 +1,35 @@
+# Инициализируем проект как библиотеку
+
+# Проверяем сборку, если задана переменная BUILD_SHARED_LIBS
+# то собираем как SHARED иначе STATIC
+if(BUILD_SHARED_LIBS)
+    add_library(${PROJECT_NAME} SHARED)
+    message("     Library will be build as SHARED")
+else()
+    add_library(${PROJECT_NAME} STATIC)
+    message("     Library will be build as STATIC")
+endif()
+
+# Инициализируем пространство имен и алиас
+add_library(${MAIN_NAMESPACE}::${PROJECT_NAMESPACE} ALIAS ${PROJECT_NAME})
+
+# Создаем файл конфигурации и указываем папку для его установки
+configure_package_config_file(cmake/${MY_CMAKE_PREFIX}-config.cmake.in colorconsole-config.cmake
+    INSTALL_DESTINATION "${COLORCONSOLE_INSTALL_CMAKEDIR}"
+)
+
+# Создаем файл конфигурации с указанием версии нашей библиотеки и указываем папку для его установки
+ write_basic_package_version_file(${MY_CMAKE_PREFIX}-config-version.cmake
+     COMPATIBILITY SameMajorVersion
+     VERSION ${PACKAGE_VERSION}
+ )
+
+# Подключаем файл с настройками Doxygen
+include(${PROJECT_SOURCE_DIR}/cmake/doxygen_settings.cmake.in)
+
+# Создаем файл Doxyfile на базе шаблона
+configure_file(docs/doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/docs/Doxyfile)
+
+message(" === Doxygen config generated")
+
+message(" === Libconf settings complete")

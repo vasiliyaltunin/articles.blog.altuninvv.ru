@@ -1,0 +1,26 @@
+# Создаем правила для установки проекта
+install(TARGETS ${PROJECT_NAME} 
+    EXPORT lib_export
+   INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+)
+
+# Указываем что нужно скопировать содержимое каталога ./include и что это заголовочные файлы
+install(DIRECTORY include/
+    TYPE INCLUDE
+)
+
+# Создаем правила установки файла *-static-targets.cmake
+install(EXPORT lib_export
+    FILE "${targets_file}"
+    DESTINATION "${COLORCONSOLE_INSTALL_CMAKEDIR}"
+    NAMESPACE "${MAIN_NAMESPACE}::"
+)
+
+# Создаем правила для установки файлов *-config.cmake и *-config-version.cmake
+install(FILES
+   "${CMAKE_CURRENT_BINARY_DIR}/${MY_CMAKE_PREFIX}-config.cmake"
+   "${CMAKE_CURRENT_BINARY_DIR}/${MY_CMAKE_PREFIX}-config-version.cmake"
+    DESTINATION "${COLORCONSOLE_INSTALL_CMAKEDIR}"
+)
+
+message(" === Install settings complete")
