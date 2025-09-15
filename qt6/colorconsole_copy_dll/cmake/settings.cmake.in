@@ -1,0 +1,7 @@
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Собираем разделяемую версию
+set(BUILD_SHARED_LIBS ON CACHE INTERNAL "Build using shared libraries ON/OFF")
+
+message(BUILD_SHARED_LIBS = ${BUILD_SHARED_LIBS})

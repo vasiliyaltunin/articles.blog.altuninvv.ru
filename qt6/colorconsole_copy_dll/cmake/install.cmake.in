@@ -1,0 +1,6 @@
+# Копируем разделяемую библиотеку из папки сборки библиотеки в папку сборки нашего проекта
+add_custom_command(
+       TARGET ${PROJECT_NAME} POST_BUILD
+       COMMAND ${CMAKE_COMMAND} -E copy
+              ${colorconsole_BINARY_DIR}/libcolorconsole.dll
+              ${CMAKE_CURRENT_BINARY_DIR}/libcolorconsole.dll)
