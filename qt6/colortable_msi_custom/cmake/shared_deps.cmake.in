@@ -1,0 +1,35 @@
+message("== Shared dependency setup")
+
+# Задаем папку, в которой нужно искать разделяемые библиотеки
+set(MY_DEPENDENCY_PATHS C:/msys64/mingw64/bin ${CMAKE_CURRENT_BINARY_DIR}/_deps/colorconsole-build)
+# Преобразуем список в формат CMake
+set(DLLS_DIR "${CMAKE_CURRENT_BINARY_DIR}")
+
+# Делаем установленные переменные доступными во время запуска из блока install(CODE
+install(CODE "set(MY_DEPENDENCY_PATHS \"${MY_DEPENDENCY_PATHS}\")")
+install(CODE "set(DLLS_DIR \"${CMAKE_CURRENT_BINARY_DIR}\")")
+
+# Запускаем на этапе установки программы
+install(CODE [[
+
+message("== Searching for shared DLL")
+
+file(GET_RUNTIME_DEPENDENCIES
+    EXECUTABLES $<TARGET_FILE:colorconsoleapp> # Обязательно должен совпадать с названием проекта
+    RESOLVED_DEPENDENCIES_VAR DLLS # Список с найденными библиотеками помещаем в переменную DLLS
+    PRE_EXCLUDE_REGEXES "^api-ms-" "^ext-ms-"
+    POST_EXCLUDE_REGEXES ".*system32/.*\\.dll"
+    DIRECTORIES ${MY_DEPENDENCY_PATHS}
+)
+
+message("== Search completed")
+
+message("== DLL Copying started…")
+foreach(DLL ${DLLS})
+    message("Dependency copied: ${DLL}")
+    file(COPY ${DLL} DESTINATION ${DLLS_DIR})
+endforeach()
+message("== DLL Copying finished")
+
+
+]])
