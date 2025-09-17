@@ -7,6 +7,9 @@ project(colorconsoleapp VERSION 0.1 LANGUAGES CXX)
 # Задаем переменные и настройки для использования
 include(${PROJECT_SOURCE_DIR}/cmake/settings.cmake.in)
 
+# Настраиваем WIX
+include(${PROJECT_SOURCE_DIR}/cmake/wix.cmake.in)
+
 # Настраиваем зависимости и устанавливаем библиотеки из git-репозиториев
 include(${PROJECT_SOURCE_DIR}/cmake/git.cmake.in)
 
@@ -21,6 +24,3 @@ include(${PROJECT_SOURCE_DIR}/cmake/shared_deps.cmake.in)
 
 # Настраиваем установку проекта
 include(${PROJECT_SOURCE_DIR}/cmake/install.cmake.in)
-
-# Настраиваем WIX
-include(${PROJECT_SOURCE_DIR}/cmake/wix.cmake.in)

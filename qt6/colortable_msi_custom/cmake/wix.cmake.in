@@ -5,11 +5,11 @@
 set(CPACK_PACKAGE_NAME "colortable")
 
 # Устанавливаем папку для установки в c:\Program Files
-SET(CPACK_PACKAGE_INSTALL_DIRECTORY "AltuninVV-Apps/bin")
+SET(CPACK_PACKAGE_INSTALL_DIRECTORY "AltuninVV-Apps")
 
 # Если раскомментировать эти строки, то установка будет выполнена в 
 # папку C:\msys64\mingw64\bin
-#SET(CPACK_PACKAGE_INSTALL_DIRECTORY "C:/msys64/mingw64/bin")
+#SET(CPACK_PACKAGE_INSTALL_DIRECTORY "C:/msys64/mingw64")
 #SET(CPACK_WIX_SKIP_PROGRAM_FOLDER TRUE)
 
 # Путь к файлу с лицензией
