@@ -1,0 +1,39 @@
+# Больше информации о доступных опциях
+# https://cmake.org/cmake/help/latest/cpack_gen/wix.html
+
+# Устанавливаем имя
+set(CPACK_PACKAGE_NAME "colortable")
+
+# Устанавливаем папку для установки в c:\Program Files
+SET(CPACK_PACKAGE_INSTALL_DIRECTORY "AltuninVV-Apps")
+
+# Если раскомментировать эти строки, то установка будет выполнена в 
+# папку C:\msys64\mingw64\bin
+#SET(CPACK_PACKAGE_INSTALL_DIRECTORY "C:/msys64/mingw64")
+#SET(CPACK_WIX_SKIP_PROGRAM_FOLDER TRUE)
+
+# Путь к файлу с лицензией
+set(CPACK_RESOURCE_FILE_LICENSE ${PROJECT_SOURCE_DIR}/cmake/wix/license.rtf)
+
+# Язык установщика 
+set(CPACK_WIX_CULTURES "ru-RU")
+
+# Иконка нашей программы
+#set(CPACK_WIX_PRODUCT_ICON "${PROJECT_SOURCE_DIR}/cmake/wix/icon.png")
+
+# Баннер отображаемый вверху каждой страницы установщика. Обязательные размеры 493x58 px
+set(CPACK_WIX_UI_BANNER "${PROJECT_SOURCE_DIR}/cmake/wix/top_bg.png")
+
+# Баннер отображаемый на странице приветствия и на последней странице установщика. Обязательные размеры 493x312px
+set(CPACK_WIX_UI_DIALOG "${PROJECT_SOURCE_DIR}/cmake/wix/welcome.png")
+
+# Имя папки в меню Пуск
+#set(CPACK_WIX_PROGRAM_MENU_FOLDER "AltuninVV Tools")
+
+# Задаем постоянный GUID это важно! В противном случае каждый раз после упаковки
+# и последующей установке Windows будет считать разные версии программы разными приложениями!
+# Создаем GUID под Windows командой .NET SDK:
+# uuidgen
+set(CPACK_WIX_UPGRADE_GUID "3dc342db-ccb3-4efa-9757-44e499ebc7af")
+
+message("=== WiX setup complete")

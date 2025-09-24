@@ -1,0 +1,24 @@
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Собираем разделяемую версию
+set(BUILD_SHARED_LIBS ON CACHE INTERNAL "Build using shared libraries ON/OFF")
+
+message(BUILD_SHARED_LIBS = ${BUILD_SHARED_LIBS})
+
+# Указываем CPACK использовать WIX
+set(CPACK_GENERATOR WIX)
+# Указываем CPACK должен использовать WIX 4 версии
+set(CPACK_WIX_VERSION 4)
+
+# Список разделяемых библиотек, которые будут скопированы в папку с исполняемым файлом
+set(MY_SHARED_LIB_FILES
+   ${CMAKE_CURRENT_BINARY_DIR}/libcolorconsole.dll
+   ${CMAKE_CURRENT_BINARY_DIR}/libgcc_s_seh-1.dll
+    ${CMAKE_CURRENT_BINARY_DIR}/libstdc++-6.dll
+    ${CMAKE_CURRENT_BINARY_DIR}/libwinpthread-1.dll
+)
+
+# Имена папок, которые будут скопированы при установке в папку с исполняемым файлом
+set(MY_DATA_DIR ${CMAKE_CURRENT_SOURCE_DIR}/data)
+set(MY_IMG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/images)
