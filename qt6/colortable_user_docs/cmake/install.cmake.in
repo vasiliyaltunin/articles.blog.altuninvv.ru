@@ -1,0 +1,18 @@
+# Задаем базовую установку
+install(TARGETS ${PROJECT_NAME} RUNTIME 
+DESTINATION ./bin
+RENAME colortable.exe
+)
+
+# Копируем все требуемые разделяемые (shared) библиотеки
+install(FILES ${MY_SHARED_LIB_FILES} DESTINATION ./bin)
+
+install(DIRECTORY
+        "${MY_DATA_DIR}" 
+        DESTINATION . 
+        PATTERN "*.sqlite")
+
+install(DIRECTORY
+        "${MY_IMG_DIR}" 
+        DESTINATION . 
+        PATTERN "*.png")

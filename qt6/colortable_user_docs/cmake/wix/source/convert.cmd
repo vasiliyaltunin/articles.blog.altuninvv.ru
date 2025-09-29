@@ -1,0 +1,2 @@
+C:\msys64\ucrt64\bin\inkscape --export-overwrite --export-type=png --export-filename=welcome.png welcome.svg 
+C:\msys64\ucrt64\bin\inkscape --export-overwrite --export-type=png --export-filename=top_bg.png top_bg.svg 

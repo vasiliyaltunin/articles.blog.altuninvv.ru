@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="493"
+   height="312"
+   viewBox="0 0 130.43958 82.55"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="layer1"><image
+       preserveAspectRatio="none"
+       width="47.078339"
+       height="47.078339"
+       xlink:href="mosaik_base_bg.svg"
+       id="use25"
+       x="-3.8608522"
+       y="-2.8283124"
+       style="opacity:0.560636" /><use
+       x="0"
+       y="0"
+       xlink:href="#use25"
+       id="use1"
+       transform="translate(-0.00292326,44.11862)" /></g></svg>

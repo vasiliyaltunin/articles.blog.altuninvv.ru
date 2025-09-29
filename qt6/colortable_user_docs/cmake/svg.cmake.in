@@ -1,0 +1,41 @@
+# Задаем команды для сборки SVG
+
+# Пытаемся найти установленный Inkscape в папках указанных в MY_INKSCAPE_SEARCH_PATH
+find_file(MY_INKSCAPE_FILE inkscape.exe
+    PATHS ${MY_INKSCAPE_SEARCH_PATH}
+)
+
+# Если Inkscape был найден то задаем правила сборки
+if(MY_INKSCAPE_FILE)
+
+    #Создаем папку для сборки изображений
+    make_directory(${CMAKE_CURRENT_BINARY_DIR}/wix)
+
+    set(MY_SVG_DEPENDS_LIST "")
+
+    # Для каждорго файла из списка добавляем команду и сам файл в список зависимостей
+    foreach(SVGS ${MY_SVG_IMAGES})
+        
+        #Добавляем команды для сборки
+        add_custom_command(
+            OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/wix/${SVGS}
+            COMMAND ${MY_INKSCAPE_FILE} --export-overwrite --export-type=png --export-filename=${CMAKE_CURRENT_BINARY_DIR}/wix/${SVGS}.png ${PROJECT_SOURCE_DIR}/cmake/wix/source/${SVGS}.svg
+        )
+
+        # Добавляем файл в список зависимостей
+        list(APPEND MY_SVG_DEPENDS_LIST ${CMAKE_CURRENT_BINARY_DIR}/wix/${SVGS})
+    endforeach()
+
+    # Задаем target для SVG он будет выполняться во время сборки проекта для каждого .png файла
+    add_custom_target(
+        SVGConvertTarget
+        ALL
+        DEPENDS ${MY_SVG_DEPENDS_LIST}
+    )
+
+    message("=== SVG converter setup complete")
+
+else()
+    # Если Inkscape не найден - выводим предупреждение
+    message(WARNING "=== Inkscape not found! I will skip svg converter jobs!")
+endif()
