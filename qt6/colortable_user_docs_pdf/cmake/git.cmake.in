@@ -1,0 +1,18 @@
+# Подключаем модуль FetchContent
+include(FetchContent)
+
+# Отключаем тихий режим работы FetchContent
+set(FETCHCONTENT_QUIET FALSE)
+
+# Задаем настройки для загрузки из git-репозитория
+FetchContent_Declare(
+  colorconsole  # Имя target нашей библиотеки, должно совпадать с используемым далее 
+  GIT_REPOSITORY https://github.com/vasiliyaltunin/Color-Console-Library.git # Путь до репозитория
+  GIT_SHALLOW TRUE # Загружаем только последние коммиты
+  GIT_PROGRESS TRUE # Отображаем процесс загрузки
+  USES_TERMINAL_DOWNLOAD TRUE # Отображать прогресс в терминале (только для Ninja)
+  EXCLUDE_FROM_ALL TRUE # Не устанавливать саму библиотеку при использовании cmake --install  
+)
+
+# Запускаем загрузку из git-репозитория и подключение библиотеки
+FetchContent_MakeAvailable(colorconsole)

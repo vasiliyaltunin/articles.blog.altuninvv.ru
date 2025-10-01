@@ -1,0 +1,7 @@
+add_executable(${PROJECT_NAME})
+
+include(GNUInstallDirs)
+
+include(CPack)
+
+find_package(Sphinx)

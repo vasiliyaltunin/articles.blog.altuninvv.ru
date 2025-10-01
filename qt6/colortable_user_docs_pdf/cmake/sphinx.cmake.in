@@ -1,0 +1,16 @@
+# Задаем команды для сборки документации с помощью Python Sphinx
+
+# Если Sphinx-cmake build был найден то задаем правила сборки
+# https://python-cmake.github.io/sphinx-cmake/
+if (Sphinx_FOUND)
+        sphinx_add_docs(doc         
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/sphinx-build
+            SOURCE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/docs
+            OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/sphinx-doc
+            CONFIG_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/sphinx-doc
+        )
+    message("=== Sphinx documentation setup complete")
+else()
+    # Если Sphinx-cmake не найден - выводим предупреждение
+    message(WARNING "=== Sphinx-cmake not found! I will skip documentation generation jobs!")
+endif()

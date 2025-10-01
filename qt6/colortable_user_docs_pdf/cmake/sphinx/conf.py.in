@@ -1,0 +1,21 @@
+project = '${MY_SPHINX_PROJECT_NAME}'
+copyright = '${MY_SPHINX_COPYRIGHT_NAME}'
+author = '${MY_SPHINX_AUTHOR_NAME}'
+release = '${MY_SPHINX_RELEASE_NAME}'
+
+extensions = ['${MY_SPHINX_EXTENSIONS_NAME}']
+
+templates_path = ['_templates']
+exclude_patterns = []
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
+
+language = 'ru'
+
+html_theme = '${MY_SPHINX_HTML_THEME}'
+
+html_static_path = ['_static']

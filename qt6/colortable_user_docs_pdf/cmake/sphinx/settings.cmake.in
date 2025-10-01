@@ -1,0 +1,25 @@
+# Задаем имя проекта
+set(MY_SPHINX_PROJECT_NAME "colortable")
+
+# Задаем Copyright
+set(MY_SPHINX_COPYRIGHT_NAME "2025, Алтунин Василий")
+
+# Задаем Автора
+set(MY_SPHINX_AUTHOR_NAME "Алтунин Василий")
+
+# Задаем Версию
+set(MY_SPHINX_RELEASE_NAME "0.1")
+
+# Задаем расширения Sphinx через пробел
+set(MY_SPHINX_EXTENSIONS_NAME "myst_parser")
+
+# Задаем расширения Sphinx через пробел
+set(MY_SPHINX_HTML_THEME "sphinx_rtd_theme")
+
+# Создаем папку для конфигурации в папке build
+make_directory(${CMAKE_CURRENT_BINARY_DIR}/sphinx-doc)
+# Создаем файл с собранной по шаблону конфигурацией 
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/sphinx/conf.py.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/sphinx-doc/conf.py" 
+)
